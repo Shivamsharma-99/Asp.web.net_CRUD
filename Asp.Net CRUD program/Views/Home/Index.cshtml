@@ -1,0 +1,28 @@
+﻿@model List<Asp.Net_CRUD_program.Models.ModelClass>
+@{
+    ViewBag.Title = "Home Page";
+}
+<h3>--------------------------------------------- This is Employee Data ------------------------------------------</h3>
+<table class="table table-striped">
+ <tr>
+     <th>Id</th>
+     <th>Name</th>
+     <th>Email</th>
+     <th>Mobile</th>
+     <th>Department</th>
+     <th>Company</th>
+ </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Mobile</td>
+            <td>@item.Department</td>
+            <td>@item.Company</td>
+            <td><a href="@Url.Action("Edit","Home",new {item.Id})" class="btn btn-warning">Edit</a></td>
+            <td><a href="@Url.Action("Delete","Home",new {item.Id})" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+</table>
